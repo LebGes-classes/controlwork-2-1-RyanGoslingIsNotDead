@@ -26,6 +26,12 @@ public class TestHashMap {
         map.put("KingOne", 1);
         Assertions.assertTrue(map.containsValue(1));
     }
+    @Test
+    void remove(){
+        map.put("KingOne", 1);
+        map.remove("KingOne");
+        Assertions.assertFalse(map.containsValue(1));
+    }
 
 
     @Test
