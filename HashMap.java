@@ -60,12 +60,12 @@ public class HashMap<K, V> {
     public boolean containsKey(K key) {
         int index = indexHash(hash(key));
         Node<K, V> currentNode = getNodeByCell(array[index]);
-        while (currentNode.next != null);{
+        while (currentNode != null){
             if (currentNode.getKey().equals(key)){
                 return true;
             }
             currentNode = currentNode.next;
-        }while (currentNode.next != null);
+        }
         return false;
     }
 
@@ -87,14 +87,13 @@ public class HashMap<K, V> {
         if (containsKey(key)) {
             size--;
             Node<K, V> currentNode = getNode(key);
-            while (currentNode.next != null) {
-                if (currentNode.next.getKey().equals(key)) {
-                    currentNode.next = currentNode.next.next;
+            while (currentNode != null) {
+                if (currentNode.getKey().equals(key)) {
+                    currentNode = currentNode.next;
                     break;
                 }
                 currentNode = currentNode.next;
             }
-            currentNode = null;
         } else {
             throw new IllegalArgumentException("Wrong key");
         }
