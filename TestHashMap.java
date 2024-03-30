@@ -30,7 +30,7 @@ public class TestHashMap {
     void remove(){
         map.put("KingOne", 1);
         map.remove("KingOne");
-        Assertions.assertFalse(map.containsValue(1));
+        Assertions.assertEquals(0, map.size());
     }
 
 
